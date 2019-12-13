@@ -55,3 +55,15 @@ $.ajax({
 
     $(".sp5").text(JSON.stringify(darthvader5.contents.taunts[4]))
 })
+
+$.ajax({
+    url: "https://api.fungenerators.com/taunt/generate?category=new-age-insult&limit=5",
+    method: "GET"
+}).then(function(BBeight) {
+
+    console.log(BBeight);
+    $(".na1").text(JSON.stringify(BBeight.contents.taunts[4]))
+})
+
+// ^ This stupid API has a limit of 5 free requests a day
+
