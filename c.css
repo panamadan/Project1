@@ -1,0 +1,17 @@
+
+#bigFunnyBtn {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30%;
+    
+}
+
+#wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
