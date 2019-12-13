@@ -35,6 +35,7 @@ $.ajax({
 
 //But this one also has a limit of 60 API calls a day "with a distribution of 5 calls an hour", so I need to be careful.
 
+//API #2
 $.ajax({
     url: "https://api.jokes.one/jod?category=animal",
     method: "GET"
@@ -45,4 +46,33 @@ $.ajax({
 
    $(".animaljoke-answer").text(JSON.stringify(kyloren.contents.jokes[0].joke.text))
    // ^And this will display the answer, "It got toad away."
+})
+
+//API #3 - THIS ONE ACTUALLY GENERATES SOMETHING RANDOM EVERY TIME!!!
+$.ajax({
+        
+    url: "https://joke3.p.rapidapi.com/v1/joke?",
+    method: "GET",
+    headers: {
+        "X-RapidAPI-Key":"7cd1301a26msh480d8432ebf3ac9p1c1f22jsn9b009ee86069"
+    }
+}).then(function(rey) {
+
+    //console.log(rey.content)
+
+   $(".randomjoke1").text(JSON.stringify(rey.content))
+ 
+})
+//API #4
+$.ajax({
+        
+    url: "https://geek-jokes.sameerkumar.website/api",
+    method: "GET"
+
+}).then(function(leia) {
+
+    console.log(leia)
+
+   $(".chuck").text(JSON.stringify(leia))
+ 
 })
