@@ -1,69 +1,48 @@
-// $.ajax({
-//    url: "https://api.fungenerators.com/taunt/categories.json?start=0&limit=5",
-//    method: "GET"
-//  }).then(function(yoda) {
-
-//    $(".insultdiv").text(JSON.stringify(yoda.contents[0][0].description))
-
-    //console.log(yoda);
-    //console.log(yoda.contents[0][0].description)
-// })
-
-//__________________________________________
-
-//Shakespeare insult #1
 $.ajax({
     url: "https://api.fungenerators.com/taunt/generate?category=shakespeare&limit=5",
     method: "GET"
 }).then(function(darthvader) {
 
-    $(".sp1").text(JSON.stringify(darthvader.contents.taunts[0]))
+    //Shakespeare insult #1
+    $(".shakespeare1").text(JSON.stringify(darthvader.contents.taunts[0]))
+
+    //Shakespeare insult #2
+    $(".shakespeare2").text(JSON.stringify(darthvader.contents.taunts[1]))
+
+    //Shakespeare insult #3
+    $(".shakespeare3").text(JSON.stringify(darthvader.contents.taunts[2]))
+
+    //Shakespeare insult #4
+    $(".shakespeare4").text(JSON.stringify(darthvader.contents.taunts[3]))
+
+    //Shakespeare insult #5
+    $(".shakespeare5").text(JSON.stringify(darthvader.contents.taunts[4]))
 })
 
-//Shakespeare insult #2
-$.ajax({
-    url: "https://api.fungenerators.com/taunt/generate?category=shakespeare&limit=5",
-    method: "GET"
-}).then(function(darthvader2) {
-
-    $(".sp2").text(JSON.stringify(darthvader2.contents.taunts[1]))
-})
-
-//Shakespeare insult #3
-$.ajax({
-    url: "https://api.fungenerators.com/taunt/generate?category=shakespeare&limit=5",
-    method: "GET"
-}).then(function(darthvader3) {
-
-    $(".sp3").text(JSON.stringify(darthvader3.contents.taunts[2]))
-})
-
-//Shakespeare insult #4
-$.ajax({
-    url: "https://api.fungenerators.com/taunt/generate?category=shakespeare&limit=5",
-    method: "GET"
-}).then(function(darthvader4) {
-
-    $(".sp4").text(JSON.stringify(darthvader4.contents.taunts[3]))
-})
-
-//Shakespeare insult #5
-$.ajax({
-    url: "https://api.fungenerators.com/taunt/generate?category=shakespeare&limit=5",
-    method: "GET"
-}).then(function(darthvader5) {
-
-    $(".sp5").text(JSON.stringify(darthvader5.contents.taunts[4]))
-})
-
+//below, this is from the api.fungenerator.com "new age" category -- haven't seen them yet (ran out of requests)
 $.ajax({
     url: "https://api.fungenerators.com/taunt/generate?category=new-age-insult&limit=5",
     method: "GET"
 }).then(function(BBeight) {
 
     console.log(BBeight);
-    $(".na1").text(JSON.stringify(BBeight.contents.taunts[4]))
+    $(".na1").text(JSON.stringify(BBeight.contents.taunts[0]))
 })
 
 // ^ This stupid API has a limit of 5 free requests a day
 
+//Time to try pulling from a new API!
+
+//But this one also has a limit of 60 API calls a day "with a distribution of 5 calls an hour", so I need to be careful.
+
+$.ajax({
+    url: "https://api.jokes.one/jod?category=animal",
+    method: "GET"
+}).then(function(kyloren) {
+
+   $(".animaljoke-question").text(JSON.stringify(kyloren.contents.jokes[0].joke.title))
+   // ^ This should display the question, "What happened to the frog that broke down?"
+
+   $(".animaljoke-answer").text(JSON.stringify(kyloren.contents.jokes[0].joke.text))
+   // ^And this will display the answer, "It got toad away."
+})
