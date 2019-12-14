@@ -1,3 +1,7 @@
+
+$( document ).ready(function() {
+
+});
 $.ajax({
     url: "https://api.fungenerators.com/taunt/generate?category=shakespeare&limit=5",
     method: "GET"
@@ -76,3 +80,4 @@ $.ajax({
    $(".chuck").text(JSON.stringify(leia))
  
 })
+

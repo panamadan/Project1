@@ -1,4 +1,9 @@
-
+* {
+    font-family: 'Nanum Pen Script', cursive;
+}
+.filled-in {
+    background-color: red;
+}
 #bigFunnyBtn {
     height: 50%;
     width: 50%;
