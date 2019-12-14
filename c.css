@@ -1,3 +1,4 @@
+
 img {
     border-radius: 50%;
     margin-left: 5px;
@@ -24,4 +25,27 @@ h2.headerText{
     margin: 0 auto;
     width: 500px;
     /* text-align: center;; */
+
+* {
+    font-family: 'Nanum Pen Script', cursive;
+}
+.filled-in {
+    background-color: red;
+}
+#bigFunnyBtn {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30%;
+    
+}
+
+#wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
 }
