@@ -35,67 +35,126 @@
     </nav>
     <!-- Page Layout here -->
     <div class="row">
-        <!--1 col-->
-        <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
+        <div class="col s3"> 
             <form id="filterContainer" action="#">
-                <h3 id="filterHeader">Filter</h3>
+                
+                    <!-- <h3 id="filterHeader">Filter</h3> -->
+                
+
+
+
+  <!-- Dropdown Trigger -->
+  <button class='dropdown-trigger btn-flat' id="filterBtn" href='#' data-target='dropdown1'>Filter</button>
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li>
+        <label for="chkChuckNorris">
+            <input type="checkbox" class="filled-in" id="chkChuckNorris1" checked="checked" />
+            <span>Chuck Norris Jokes</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkFortune">
+            <input type="checkbox" class="filled-in" id="chkFortune" checked="checked"/>
+            <span>Fortune</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkFortune">
+            <input type="checkbox" class="filled-in" id="chkFortune" checked="checked"/>
+            <span>Fortune</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkTaunt">
+            <input type="checkbox" class="filled-in" id="chkTaunt" checked="checked"/>
+            <span>Taunt</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkGeekJokes">
+            <input type="checkbox" class="filled-in" id="chkGeekJokes" checked="checked" />
+            <span>Geek Jokes</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkNSFW">
+            <input type="checkbox" class="filled-in" id="chkNSFW" checked="checked"/>
+            <span>NSFW</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkMute">
+            <input type="checkbox" class="filled-in" id="chkMute" checked="checked"/>
+            <span>Mute</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkRandom">
+            <input type="checkbox" class="filled-in" id="chkRandom" checked="checked"/>
+            <span>Random</span>
+        </label>
+    </li>
+  </ul>
+
+
+<!-- 
                 <p>
                 <label for="chkChuckNorris">
-                    <input type="checkbox" class="filled-in" id="chkChuckNorris" />
+                    <input type="checkbox" class="filled-in" id="chkChuckNorris1" checked="checked" />
                     <span>Chuck Norris Jokes</span>
                 </label>
                 </p>
                 <p>
                 <label for="chkFortune">
-                    <input type="checkbox" class="filled-in" id="chkFortune" />
+                    <input type="checkbox" class="filled-in" id="chkFortune" checked="checked"/>
                     <span>Fortune</span>
                 </label>
                 </p>
                 <p>
                 <label for="chkGeekJokes">
-                    <input type="checkbox" class="filled-in" id="chkGeekJokes" />
+                    <input type="checkbox" class="filled-in" id="chkGeekJokes" checked="checked" />
                     <span>Geek Jokes</span>
                 </label>
                 </p>  
                 <p>
                 <label for="chkTaunt">
-                    <input type="checkbox" class="filled-in" id="chkTaunt" />
+                    <input type="checkbox" class="filled-in" id="chkTaunt" checked="checked"/>
                     <span>Taunt</span>
                 </label>
                 </p>  
                 <p>
                 <label for="chkNSFW">
-                    <input type="checkbox" class="filled-in" id="chkNSFW" />
+                    <input type="checkbox" class="filled-in" id="chkNSFW" checked="checked"/>
                     <span>NSFW</span>
                 </label>
                 </p> 
                 <p>
                 <label for="chkMute">
-                    <input type="checkbox" class="filled-in" id="chkMute" />
+                    <input type="checkbox" class="filled-in" id="chkMute" checked="checked"/>
                     <span>Mute</span>
                 </label>
                 </p>    
                 <p>
                 <label for="chkRandom">
-                    <input type="checkbox" class="filled-in" id="chkRandom" />
+                    <input type="checkbox" class="filled-in" id="chkRandom" checked="checked"/>
                     <span>Random</span>
                 </label>
                 </p>                
-            </form>
+            </form> -->
         </div>
-    
         <!--2 col-->
-        <div class="col s12 m8 l9 center"> <!-- Note that "m8 l9" was added -->
-            <div id="wrapper">
+        <div class="col s6"> <!-- Note that "m8 l9" was added -->
+            <div id="wrapper" class="center">
                 <!--big funny btn-->
-                <a class="btn-floating hoverable waves-effect left btn-large center red darken-4 z-depth-5 animated infinite bounce delay-1s" id="bigFunnyBtn">
+                <a class="btn-floating hoverable waves-effect left-align btn-large center red darken-4 z-depth-5 animated infinite bounce delay-1s" id="bigFunnyBtn">
                 <i id="bfb" class="material-icons">BIG FUNNY BUTTON</i></a> 
-                
+            </div>
         </div>
-    <!-- </div> -->
-    <!-- <div class="row">
-        <div class="col s12 m8 l9"> -->
-            <div id="allthejokes">
+        <!--3 col-->
+        <div class="col s3 jokesOutput"> 
+            <div id="allthejokes" class="right-align">
                     <div class="shakespeare1"></div>
                     <div class="shakespeare2"></div>
                     <div class="shakespeare3"></div>
@@ -114,8 +173,9 @@
                     <div class="chuck"></div>
             </div>
         </div>    
-        <!-- </div>
-    </div> -->
+        <!-- </div> -->
+    </div>
+    
     
     <!--JQuery-->   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -127,8 +187,8 @@
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="j.js"></script> 
-
-
+    <!--FilterDD-->
+    <script src="filterDD.js"></script> 
 </body>
 
 </html>
