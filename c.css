@@ -8,6 +8,7 @@ img {
 
 .wrapperDiv{ 
     background-color:#005aca;
+
     
 
 
@@ -25,7 +26,7 @@ h2.headerText{
 
 .containerHeader{
     margin: 0 auto;
-    width: 500px;
+    width: 350px;
     /* text-align: center;; */
 }
 
