@@ -1,27 +1,26 @@
+$(document).ready(function() {
 
-$( document ).ready(function() {
+    function shakespeare(element) {
 
-});
 $.ajax({
     url: "https://api.fungenerators.com/taunt/generate?category=shakespeare&limit=5",
     method: "GET"
+    
 }).then(function(darthvader) {
+    console.log(darthvader);
 
-    //Shakespeare insult #1
-    $(".shakespeare1").text(JSON.stringify(darthvader.contents.taunts[0]))
+    var randtaunt = Math.floor(Math.random()*5);
+    element.text(JSON.stringify(darthvader.contents.taunts[randtaunt]))
 
-    //Shakespeare insult #2
-    $(".shakespeare2").text(JSON.stringify(darthvader.contents.taunts[1]))
-
-    //Shakespeare insult #3
-    $(".shakespeare3").text(JSON.stringify(darthvader.contents.taunts[2]))
-
-    //Shakespeare insult #4
-    $(".shakespeare4").text(JSON.stringify(darthvader.contents.taunts[3]))
-
-    //Shakespeare insult #5
-    $(".shakespeare5").text(JSON.stringify(darthvader.contents.taunts[4]))
 })
+}
+shakespeare($(".shakespeare1"));
+
+
+
+
+
+
 
 //below, this is from the api.fungenerator.com "new age" category -- haven't seen them yet (ran out of requests)
 $.ajax({
@@ -80,4 +79,4 @@ $.ajax({
    $(".chuck").text(JSON.stringify(leia))
  
 })
-
+});
