@@ -124,9 +124,57 @@ body {
 button .overWriteTxt {
     display: none; 
 }
+button .overReWriteTxt {
+    display: none; 
+}
 button:hover .txt {
     display: none; 
 }
 button:hover .overWriteTxt {
     display: inline; 
+}
+button:active .overReWriteTxt {
+    display: inline; 
+}
+button:active .txt {
+    display: none; 
+}
+
+
+
+.dropdown-content {
+    background-color: #fff;
+    margin: 40px;
+    display: none;
+    min-width: 100px;
+    overflow-y: auto;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: -50px;
+    z-index: 9999;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+element.style {
+    display: block;
+    width: 219.375px;
+    left: 21.25px;
+    top: 120px;
+    height: 350px;
+    transform-origin: 0px 0px;
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+    background-color: none;
+}
+.dropdown-content li {
+    clear: both;
+    color: rgba(0,0,0,0.87);
+    cursor: pointer;
+    min-height: 50px;
+    line-height: 1.5rem;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
 }

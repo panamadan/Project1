@@ -3,3 +3,4 @@
 //   });
 
   $('.dropdown-trigger').dropdown();
+
