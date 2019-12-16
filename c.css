@@ -8,6 +8,7 @@ img {
 
 .wrapperDiv{ 
     background-color:#005aca;
+
     
 
 
@@ -21,11 +22,14 @@ h2.headerText{
     font-size: 3em;
     float:left;
     font: black;
+    animation: spin 10s linear infinite;
+  /*Set our animation play state to paused initially */
+  animation-play-state: paused;
 }
 
 .containerHeader{
     margin: 0 auto;
-    width: 500px;
+    width: 350px;
     /* text-align: center;; */
 }
 

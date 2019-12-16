@@ -24,19 +24,28 @@
             <div class="containerHeader">
 
                 <a href="#!">
-                    <h2 class="headerText animated infinite tada delay-1s">Make Me Laugh!</h2>
+                    <h2 class="headerText hoverable">Make Me Laugh!</h2>
                 </a>
+                <!-- make into animation when cursor hovers  -->
 
-                <a class=""> <img src="https://media.giphy.com/media/3ohryou6kbKdobhYM8/giphy.gif" style="width: 58px;">
-                    
+                <a class="happyFace"> <img src="https://media.giphy.com/media/3ohryou6kbKdobhYM8/giphy.gif"
+                    alt="" class="circle responsive-img" style="width: 58px;">
+
+
+
+                    <audio id="audioFace" src="http://soundbible.com/grab.php?id=2191&type=wav"
+                        autoplay="false"></audio>
+                    <!-- <a onclick="playSound();"> Play</a> -->
+                    <!-- make into button to play sounds --  --> -->
             </div>
-
         </div>
     </nav>
     <!-- Page Layout here -->
     <div class="row">
+
         <div class="col s3"> 
-            <form id="filterContainer" action="#">
+
+         <form id="filterContainer" action="#">
                 
                     <!-- <h3 id="filterHeader">Filter</h3> -->
                 
@@ -99,6 +108,7 @@
 
 <!-- 
                 <p>
+
                 <label for="chkChuckNorris">
                     <input type="checkbox" class="filled-in" id="chkChuckNorris1" checked="checked" />
                     <span>Chuck Norris Jokes</span>
