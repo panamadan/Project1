@@ -1,0 +1,24 @@
+body {
+    background-color: yellow;
+    background-image: "..\images-backgrounds\shutterstock_1293011533.jpg";
+}
+
+.changeP {
+    font-size: 4em;
+    font-weight: 1000;
+}
+
+.bigButton {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    height: 200px;
+    width: 200px;
+    font-size: 4em;
+    border-radius: 200px;
+    background-color: red;
+    border: 20px solid lightgray;
+}
+.bigButton:activate {
+    font-size: 6em;
+}
