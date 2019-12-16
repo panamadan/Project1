@@ -163,7 +163,6 @@ var backgrounds =
 [
   "assets/images-backgrounds/shutterstock_751244767.jpg",
   "assets/images-backgrounds/shutterstock_1293011533.jpg",
-  "assets/images-backgrounds/firework.gif",
   "assets/images-backgrounds/sparklesAndColors.gif",
   "assets/images-backgrounds/bottomlessPit.gif"
 ]
@@ -190,25 +189,29 @@ function changeP()
 
     if (debug) {console.log("text change to \""+rgb+"\"");}
 
-    $(".changeP").css({"color": rgb});
+    $(".wrapperDiv").css({"background-color": rgb});
 }
 
+var muted = false;
 
 function playAudio(elementName)
 {
-  var which = 0;
+  if (!muted)
+  {
+    var which = 0;
 
-  if (elementName)
-  {
-    var audioEl = document.getElementById(elementName);
-    audioEl.play();
-  }
-  else
-  {
-    var which = Math.floor(Math.random()*audioList.length);
-    var audioEl = document.getElementById(audioList[which]);
-    audioEl.play();
-    if (debug) {console.log("playing audio :"+ audioList[which]);}
+    if (elementName)
+    {
+      var audioEl = document.getElementById(elementName);
+      audioEl.play();
+    }
+    else
+    {
+      var which = Math.floor(Math.random()*audioList.length);
+      var audioEl = document.getElementById(audioList[which]);
+      audioEl.play();
+      if (debug) {console.log("playing audio :"+ audioList[which]);}
+    }
   }
 }
 
@@ -231,12 +234,12 @@ function toggleButtonRun()
   if (!runButtonRun)
   {
     runButtonRun = true;
-    $(".bigButton").css("background-color","blue");
+    $(".bigFunnyBtn").css("background-color","blue");
   }
   else
   {
     runButtonRun = false;
-    $(".bigButton").css("background-color","red");
+    $(".bigFunnyBtn").css("background-color","red");
   }
 }
 
@@ -256,33 +259,43 @@ function buttonRun(event)
     top =  top  < 0 ? 0 : (top  > 1000 ? 1000 : top);
     var left = y + dy + jump; 
     left = left < 0 ? 0 : (left > 1000 ? 1000 : left);
-    $(".bigButton").css("top" ,top +"px");
-    $(".bigButton").css("left",left+"px");
+    $(".bigFunnyBtn").css("top" ,top +"px");
+    $(".bigFunnyBtn").css("left",left+"px");
   }
   else
   {
-    $(".bigButton").css("top" ,event.clientY-100+"px");
-    $(".bigButton").css("left",event.clientX-100+"px");
+    $(".bigFunnyBtn").css("top" ,event.clientY-100+"px");
+    $(".bigFunnyBtn").css("left",event.clientX-100+"px");
   }
   oldRunButton = runButtonRun;
 }
 
+$('.dropdown-trigger').dropdown();
+
+$(".happyFace").on("click",function()
+{
+  playAudio("haha");
+})
 
 var clickCount = 0;
 var randomChecked = true;
 var oldRandomChecked = false;
-var muted = false;
+var NSFW = true;
 
-$(".bigButton").on("click",function()
+$("#bigFunnyBtn").on("click",function()
 {
-  $(".bigButton").text(++clickCount);
+  $("#bigFunnyBtn").text("BIG FUNNY BUTTON"+ "\n" + ++clickCount);
   
   // get content based on checkbox state
-  // if (shakespeareChecked) {shakespeare();}
-  // if (chuckNorrisChecked) {chuckNorris();}
-  // if (fortuneChecked)     {fortune();    }
-  // @@@@@ Other Functions!
-  // muted = muteChecked ? true : false;
+  NSFW = document.getElementById("chkNSFW").checked;
+  if (document.getElementById("chkNewAge"      ).checked) {newage($(".na1"              ),NSFW);}
+  if (document.getElementById("chkChuckNorris" ).checked) {chucknorriswrapper($(".chuck"),NSFW);}
+  if (document.getElementById("chkTaunt"       ).checked) {shakespeare($(".shakespeare1"),NSFW);}
+  if (document.getElementById("chkCritterJokes").checked) {critterjokes($(".animaljoke" ),NSFW);}
+  if (document.getElementById("chkGenericJokes").checked) {genericjoke($(".randomjoke1" ),NSFW);}
+  // if (document.getElementById("chkFortune"     ).checked) {fortunecookie($(".fortune"   ),NSFW);}
+  muted         = document.getElementById("chkMute" ).checked;
+  randomChecked = document.getElementById("chkRandom").checked;
   if (randomChecked && !oldRandomChecked)
   {
     masterClock = setInterval(randoEngine,1000);
@@ -297,13 +310,88 @@ $(".bigButton").on("click",function()
   if (!muted) {playAudio("boing");}
 })
 
+// API functions ***
+
+// Category #1 - Shakespeare Taunts
+function shakespeare(element,nsfw) {
+
+    $.ajax({
+    url: "https://api.fungenerators.com/taunt/generate?category=shakespeare&limit=5",
+    method: "GET"
+    
+    }).then(function(darthvader) {
+    console.log(darthvader);
+
+    var randtaunt = Math.floor(Math.random()*5);
+    element.text(JSON.stringify(darthvader.contents.taunts[randtaunt]));
+    })
+}
+
+// Category #2 - "New Age" Taunts
+// Be careful with this category; it runs out of requests quickly. You get what you pay for!
+function newage(element,nsfw) {
+
+    $.ajax({
+        url: "https://api.fungenerators.com/taunt/generate?category=new-age-insult&limit=5",
+        method: "GET"
+
+    }).then(function(BBeight) {
+    if (debug) {console.log(BBeight);}
+
+    var randnewage = Math.floor(Math.random()*5);
+    element.text(JSON.stringify(BBeight.contents.taunts[randnewage]))
+    })
+}
+
+// Category #3 - Animal Jokes
+// This one has a limit of 60 API calls a day "with a distribution of 5 calls an hour", so be careful.
+function critterjokes(element,nsfw) {
+// This wrapper function is targeting the question, i.e. "What happened to the frog that broke down?"
+    $.ajax({
+        url: "https://api.jokes.one/jod?category=animal",
+        method: "GET"
+    }).then(function(kyloren) {
+    if (debug) {console.log(kyloren);}
+
+    // var joke =  Math.floor(Math.random()*5);
+    element.text(JSON.stringify(kyloren.contents.jokes[0].joke.text))
+    })
+}
+
+// Category #4 - Generic
+function genericjoke(element,nsfw) {
+    $.ajax({
+            
+        url: "https://joke3.p.rapidapi.com/v1/joke?",
+        method: "GET",
+        headers: {"X-RapidAPI-Key":"7cd1301a26msh480d8432ebf3ac9p1c1f22jsn9b009ee86069"}
+    }).then(function(rey) {
+    if (debug) {console.log(rey.content);}
+
+    element.text(JSON.stringify(rey.content));
+    })
+}
+
+// Category #5 - Chuck Norris
+function chucknorriswrapper(element,nsfw) {
+    $.ajax({
+        url: "https://geek-jokes.sameerkumar.website/api",
+        method: "GET"
+    }).then(function(leia) {
+    if (debug) {console.log(leia);}
+
+    element.text(JSON.stringify(leia));
+    })
+}
+
 //***************
 //*   Startup   *
 //***************
-$(document).ready(function(){
 
-shuffleEventFunctions();
-assignRandomIntervals();
-timeSec = eventFunctions[0].timeUntilStart;
-
+$(document).ready(function()
+{
+  shuffleEventFunctions();
+  assignRandomIntervals();
+  timeSec = eventFunctions[0].timeUntilStart;
 })
+

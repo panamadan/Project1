@@ -15,7 +15,7 @@ $(document).ready(function() {
         element.text(JSON.stringify(darthvader.contents.taunts[randtaunt]))
         })
     }
-    shakespeare($(".shakespeare1"));
+    // shakespeare($(".shakespeare1"));
 
     //__________________________________________________________________________________
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
             element.text(JSON.stringify(BBeight.contents.taunts[randnewage]))
         })
     }
-    newage($(".na1"));
+    // newage($(".na1"));
 
 
     //__________________________________________________________________________________
@@ -43,7 +43,7 @@ $(document).ready(function() {
     // Catetory #3 - Animal Jokes
     // This one has a limit of 60 API calls a day "with a distribution of 5 calls an hour", so be careful.
 
-    function critterjokesquestion(element) {
+    function critterjokes(element) {
     // This wrapper function is targeting the question, i.e. "What happened to the frog that broke down?"
         $.ajax({
             url: "https://api.jokes.one/jod?category=animal",
@@ -51,11 +51,11 @@ $(document).ready(function() {
         }).then(function(kyloren) {
 
         var jokequestion =  Math.floor(Math.random()*5);
-        element.text(JSON.stringify(kyloren.contents.jokes[jokequestion].joke.title))
+        element.text(JSON.stringify(kyloren.contents.jokes[jokequestion].joke.title+kyloren.contents.jokes[jokeanswer].joke.text))
         //$(".animaljoke-question").text(JSON.stringify(kyloren.contents.jokes[0].joke.title))
         })
     }
-    critterjokesquestion($(".animaljoke-question"))
+    // critterjokesquestion($(".animaljoke-question"))
 
 
     // And this one is targeting an answer, i.e. "It got toad away."
@@ -70,7 +70,7 @@ $(document).ready(function() {
         //$(".animaljoke-answer").text(JSON.stringify(kyloren.contents.jokes[0].joke.text))
         })
     }
-    critterjokesanswer($(".animaljoke-answer"))
+    // critterjokesanswer($(".animaljoke-answer"))
 
 
     //__________________________________________________________________________________
@@ -88,7 +88,7 @@ $(document).ready(function() {
         })
         // ***This one already generates something random each time you refresh the page, so I don't need to write additional code to randomize it.
     }
-    genericjoke($(".randomjoke1"))
+    // genericjoke($(".randomjoke1"))
 
  
     //__________________________________________________________________________________
@@ -104,6 +104,6 @@ $(document).ready(function() {
         })
         // ***This one also automatically generates something random each time you refresh.
     }
-    chucknorriswrapper($(".chuck"))
+    // chucknorriswrapper($(".chuck"))
 
 })
