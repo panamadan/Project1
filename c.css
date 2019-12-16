@@ -33,12 +33,14 @@ h2.headerText{
     /* text-align: center;; */
 }
 
+
+
 #bigFunnyBtn {
     height: 100%;
     width: 100%;
     /* display: flex; */
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     margin: 25%;
     /* display: block; */
     display: grid;
@@ -53,9 +55,10 @@ h2.headerText{
 
 #wrapper {
     height: 100%;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     display: inline-table;
+    
 
 
 }
@@ -66,7 +69,7 @@ body {
 
 [type="checkbox"].filled-in:checked+span:not(.lever):after {
     border: 1px solid black;
-    background-color: none;
+    background-color: #005aca;
 }
 [type="checkbox"]+span:not(.lever) {
     font-size: 1.5rem;
@@ -77,11 +80,105 @@ body {
     font-size: 3.92rem;
     color: black;
     
+    
 }
 #filterContainer {
     margin-left: 50px;
+    background: transparent;
+   
+
 }
 
 #allthejokes {
     font-size: 22px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+
+}
+
+/* .btnColumn {
+    width: 300px;
+    box-sizing: border-box
+} */
+.col {
+    box-sizing: border-box;
+}
+
+#filterBtn {
+    background-color: none;
+    color: black;
+    font-family: 'Nanum Pen Script', cursive;   
+    font-size: 2.0rem;
+    border:solid 3px #41403E;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+.row .col {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 50px .75rem;
+    min-height: 1px;
+}
+
+#filterBtn:hover { 
+    font-size: 2em; 
+    color: red;
+}
+
+button .overWriteTxt {
+    display: none; 
+}
+button .overReWriteTxt {
+    display: none; 
+}
+button:hover .txt {
+    display: none; 
+}
+button:hover .overWriteTxt {
+    display: inline; 
+}
+button:active .overReWriteTxt {
+    display: inline; 
+}
+button:active .txt {
+    display: none; 
+}
+
+
+
+.dropdown-content {
+    background-color: #fff;
+    margin: 40px;
+    display: none;
+    min-width: 100px;
+    overflow-y: auto;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: -50px;
+    z-index: 9999;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+element.style {
+    display: block;
+    width: 219.375px;
+    left: 21.25px;
+    top: 120px;
+    height: 350px;
+    transform-origin: 0px 0px;
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+    background-color: none;
+}
+.dropdown-content li {
+    clear: both;
+    color: rgba(0,0,0,0.87);
+    cursor: pointer;
+    min-height: 50px;
+    line-height: 1.5rem;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
 }
