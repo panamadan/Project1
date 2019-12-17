@@ -100,10 +100,12 @@ h2.headerText {
     font-size: 20px;
     word-wrap: break-word;
     box-sizing: border-box;
-    text-align: justify;
+    text-align: left;
+    position: relative;
     padding: 35px 24px 40px 21px;
     width: 120%;
     background-color: white;
+    border: ridge 10px gold;
 }
 
 .col {
