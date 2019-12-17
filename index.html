@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="c.css">
     <title>Make Me Laugh</title>
     <link rel="icon" href="https://media3.giphy.com/media/3ohryou6kbKdobhYM8/giphy.gif">
+    
+    
+
 </head>
 
 <body>
@@ -184,9 +187,177 @@
     <audio id="wow">           <source src="assets/audio/woow_x.wav"            type="audio/wav"></audio>
     <audio id="yay">           <source src="assets/audio/yay_z.wav"             type="audio/wav"></audio>
     <audio id="zag">           <source src="assets/audio/zag_x.wav"             type="audio/wav"></audio>
+    
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="MakeMeLaugh.js"></script>
 
-<!--     <script src="https://unpkg.com/mithril/mithril.js"></script> -->
+    <div class= "row">
+        <div class="col s12" style="padding: 0;">
 
+    <!-- Navbar goes here -->
+    <nav>
+        <div class="wrapperDiv">
+            <div class="containerHeader">
+
+                <a href="#!">
+                    <h2 class="headerText">Make Me Laugh!</h2>
+                </a>
+                <!-- make into animation when cursor hovers  -->
+
+                
+                <a class="happyFace"> <img src="https://media.giphy.com/media/3ohryou6kbKdobhYM8/giphy.gif"
+                    alt="" class="circle responsive-img" style="width: 58px;">
+                    
+                        
+            </div>
+        </div>
+    </nav>
+</div>
+</div>
+    <!-- Page Layout here -->
+    <div class="row">
+
+
+        <div class="col s3"> 
+
+         <form id="filterContainer" action="#">
+                
+                    <!-- <h3 id="filterHeader">Filter</h3> -->
+                
+
+
+
+  <!-- Dropdown Trigger -->
+  <button class='dropdown-trigger btn-flat' id="filterBtn" href='#' data-target='dropdown1' data-beloworigin="false">
+    <span class="txt">Don't click me!</span> 
+    <span class="overWriteTxt">DON'T YOU DARE!</span> 
+    <span class="overReWriteTxt">Pick your fun!</span> 
+  </button>
+  
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li>
+        <label for="chkChuckNorris">
+            <input type="checkbox" class="filled-in" id="chkChuckNorris1" checked="checked" />
+            <span>Chuck Norris Jokes</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkFortune">
+            <input type="checkbox" class="filled-in" id="chkFortune" checked="checked"/>
+            <span>Fortune</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkTaunt">
+            <input type="checkbox" class="filled-in" id="chkTaunt" checked="checked"/>
+            <span>Taunt</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkGeekJokes">
+            <input type="checkbox" class="filled-in" id="chkGeekJokes" checked="checked" />
+            <span>Geek Jokes</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkNSFW">
+            <input type="checkbox" class="filled-in" id="chkNSFW"/>
+            <span>NSFW</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkMute">
+            <input type="checkbox" class="filled-in" id="chkMute" checked="checked"/>
+            <span>Mute</span>
+        </label>
+    </li>
+    <li>
+        <label for="chkRandom">
+            <input type="checkbox" class="filled-in" id="chkRandom" checked="checked"/>
+            <span>Random</span>
+        </label>
+    </li>
+  </ul>
+
+
+<!-- 
+                <p>
+
+                <label for="chkChuckNorris">
+                    <input type="checkbox" class="filled-in" id="chkChuckNorris1" checked="checked" />
+                    <span>Chuck Norris Jokes</span>
+                </label>
+                </p>
+                <p>
+                <label for="chkFortune">
+                    <input type="checkbox" class="filled-in" id="chkFortune" checked="checked"/>
+                    <span>Fortune</span>
+                </label>
+                </p>
+                <p>
+                <label for="chkGeekJokes">
+                    <input type="checkbox" class="filled-in" id="chkGeekJokes" checked="checked" />
+                    <span>Geek Jokes</span>
+                </label>
+                </p>  
+                <p>
+                <label for="chkTaunt">
+                    <input type="checkbox" class="filled-in" id="chkTaunt" checked="checked"/>
+                    <span>Taunt</span>
+                </label>
+                </p>  
+                <p>
+                <label for="chkNSFW">
+                    <input type="checkbox" class="filled-in" id="chkNSFW" checked="checked"/>
+                    <span>NSFW</span>
+                </label>
+                </p> 
+                <p>
+                <label for="chkMute">
+                    <input type="checkbox" class="filled-in" id="chkMute" checked="checked"/>
+                    <span>Mute</span>
+                </label>
+                </p>    
+                <p>
+                <label for="chkRandom">
+                    <input type="checkbox" class="filled-in" id="chkRandom" checked="checked"/>
+                    <span>Random</span>
+                </label>
+                </p>                
+            </form> -->
+        </div>
+        <!--2 col-->
+        <div class="col s6"> <!-- Note that "m8 l9" was added -->
+            <div id="wrapper" class="center">
+                <!--big funny btn-->
+                <a class="btn-floating hoverable waves-effect left-align btn-large center red darken-4 z-depth-5 animated infinite bounce delay-1s" id="bigFunnyBtn">
+                <i id="bfb" class="material-icons">BIG FUNNY BUTTON</i></a> 
+            </div>
+        </div>
+        <!--3 col-->
+        <div class="col s3 jokesOutput"> 
+            <div id="allthejokes" class="right-align">
+                    <div class="shakespeare1"></div>
+                    <div class="shakespeare2"></div>
+                    <div class="shakespeare3"></div>
+                    <div class="shakespeare4"></div>
+                    <div class="shakespeare5"></div>
+
+                    <div class="na1"></div>
+
+                    <div>
+                        <p class="animaljoke-question"></p>
+                        <p class="animaljoke-answer"></p>
+                    </div>
+
+                    <div class="randomjoke1"></div>
+                        <br>
+                    <div class="chuck"></div>
+            </div>
+        </div>    
+        <!-- </div> -->
+    </div>
     
     <!--JQuery-->   
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
