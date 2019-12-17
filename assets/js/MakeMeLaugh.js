@@ -469,6 +469,11 @@ function getGIF(searchStr,element,nsfw) {
 
 $(document).ready(function()
 {
+  var elems = document.querySelectorAll('.dropdown-trigger');
+  M.Dropdown.init(elems, {"closeOnClick":false});
+  if (debug){instances.forEach(instance => { console.log(instance);}); }
+  
+ 
   shuffleEventFunctions();
   assignRandomIntervals();
   backgroundBlaster();
