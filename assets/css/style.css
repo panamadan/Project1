@@ -12,7 +12,7 @@ img {
 
 @font-face {
     font-family: MyFirstFont;
-    src: url("assets/fonts/HRHaHa.ttf");
+    src: url("../fonts/KRHaHa.ttf");
 }
 
 h2.headerText {
@@ -23,7 +23,9 @@ h2.headerText {
     float:left;
 }
 
-.dance {
+h2.headerText:hover {
+    font-size: 3em;
+    font-family: MyFirstFont;
     animation: shake 0.5s;
     animation-iteration-count: infinite;
 }
@@ -67,8 +69,8 @@ h2.headerText {
 
 .chuckImg {
     position: absolute;
-    left: 1000px;
-    top:   130px
+    left: 10px;
+    top:   200px
 }
 
 #wrapper {
@@ -135,20 +137,11 @@ h2.headerText {
 button .overWriteTxt {
     display: none; 
 }
-button .overReWriteTxt {
-    display: none; 
-}
 button:hover .txt {
     display: none; 
 }
 button:hover .overWriteTxt {
     display: inline; 
-}
-button:active .overReWriteTxt {
-    display: inline; 
-}
-button:active .txt {
-    display: none; 
 }
 
 .dropdown-content {
