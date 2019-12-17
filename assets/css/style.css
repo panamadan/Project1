@@ -2,7 +2,7 @@
     font-family: 'Nanum Pen Script', cursive;    
 }
 img {
-    border-radius: 50%;
+    border-radius: 70%;
     margin-left: 5px;
 }
 
@@ -10,28 +10,43 @@ img {
     background-color:#005aca;
 }
 
+@font-face {
+    font-family: MyFirstFont;
+    src: url("assets/fonts/HRHaHa.ttf");
+}
+
 h2.headerText {
     /* display: block; */
     margin: 0;
-    padding: 0;
-    width: 250px;
-    font-size: 2em;
+    padding: 7px;
+    font-size: 3em;
     float:left;
-    font: black;
-    animation: spin 10s linear infinite;
-    /*Set our animation play state to paused initially */
-    animation-play-state: paused;
 }
-.newTitleBox:hover {
-    font-size: 4em;
+
+.dance {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+     0% { transform: translate( 1px, 1px) rotate( 0deg); }
+    10% { transform: translate(-1px,-2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate( 1deg); }
+    30% { transform: translate( 3px, 2px) rotate( 0deg); }
+    40% { transform: translate( 1px,-1px) rotate( 1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate( 0deg); }
+    70% { transform: translate( 3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px,-1px) rotate(-deg); }
+    90% { transform: translate( 1px, 2px) rotate( 0deg); }
+   100% { transform: translate( 1px,-2px) rotate(-1deg); }
 }
 
 .containerHeader{
     margin: 0 auto;
-    width: 350px;
-    /* text-align: center;; */
+    width: 800px;
+    padding-left: 7%;
 }
-
 
 #bigFunnyBtn {
     position: absolute;
@@ -43,17 +58,13 @@ h2.headerText {
     align-items: center;
     justify-content: left;
     margin: 25%;
-    /* display: block; */
     display: grid;
     padding: 40px;
-    font-size: 2.5em;
+    font-size: 2.92rem;
     border: 20px solid lightgray;
     border-radius: 350px;   
 }
-/* #bfb {
-    font-size: 2.5em;
-    color: white;
-} */
+
 .chuckImg {
     position: absolute;
     left: 1000px;
@@ -65,13 +76,6 @@ h2.headerText {
     align-items: left;
     justify-content: left;
     display: inline-table;
-    
-
-
-}
-body {
-    /* background-image: url("https://media.giphy.com/media/WrHrrwqxCTTb7uKQQX/giphy.gif"); */
-    
 }
 
 [type="checkbox"].filled-in:checked+span:not(.lever):after {
@@ -86,27 +90,22 @@ body {
 #filterHeader {
     font-size: 3.92rem;
     color: black;
-    
-    
 }
 #filterContainer {
     margin-left: 50px;
     background: transparent;
-   
-
 }
 
 #allthejokes {
-    font-size: 22px;
+    font-size: 20px;
     word-wrap: break-word;
     box-sizing: border-box;
-
+    text-align: justify;
+    padding: 35px 24px 40px 21px;
+    width: 120%;
+    background-color: white;
 }
 
-/* .btnColumn {
-    width: 300px;
-    box-sizing: border-box
-} */
 .col {
     box-sizing: border-box;
 }
@@ -116,12 +115,8 @@ body {
     color: black;
     font-family: 'Nanum Pen Script', cursive;   
     font-size: 2.0rem;
-    border:solid 3px #41403E;
+    border:solid 3px black;
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-}
-
-#allthejokes {
-    background-color: white;
 }
 
 .row .col {
@@ -155,8 +150,6 @@ button:active .overReWriteTxt {
 button:active .txt {
     display: none; 
 }
-
-
 
 .dropdown-content {
     background-color: #fff;

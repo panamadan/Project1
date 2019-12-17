@@ -18,22 +18,28 @@
 </head>
 
 <body>
-    <!-- Navbar goes here -->
-    <nav>
-        <div class="wrapperDiv">
-            <div class="containerHeader">
 
-                <div class="navTitleBox" href="#!">
-                    <h2 class="headerText hoverable">Make Me Laugh!</h2>
+    <div class="row">
+        <div class="col-12" style="padding: 0;">
+        <!-- Navbar goes here -->
+            <nav>
+                <div class="wrapperDiv">
+                    <div class="containerHeader">
+
+                        <a href="#!">
+                            <h2 class="headerText">Make Me Laugh!</h2>
+                        </a>
+                        <!-- make into animation when cursor hovers  -->
+
+                        <a class="happyFace"> <img src="https://media.giphy.com/media/3ohryou6kbKdobhYM8/giphy.gif"
+                            alt="" class="circle responsive-img" style="width: 58px;">
+                        </a>
+                    </div>
                 </div>
-                <!-- make into animation when cursor hovers  -->
-
-                <a class="happyFace"> <img src="https://media.giphy.com/media/3ohryou6kbKdobhYM8/giphy.gif"
-                    alt="" class="circle responsive-img" style="width: 58px;"></a>
-                
-            </div>
-        </div>
-    </nav>
+            </nav>
+        </div>   
+    </div>
+    
     <!-- Page Layout here -->
     <div class="row">
 
@@ -109,12 +115,13 @@
             </form>
         </div>
         <!--2 col-->
-        <div class="col s6"> <!-- Note that "m8 l9" was added -->
+        <div class="col s5"> <!-- Note that "m8 l9" was added -->
             <div id="wrapper" class="center">
                 <!--big funny btn-->
                 <a class="btn-floating hoverable waves-effect left-align btn-large center red 
                     darken-4 z-depth-5 animated infinite bounce delay-1s" id="bigFunnyBtn">
-                <i id="bfb" class="material-icons">BIG FUNNY BUTTON</i></a> 
+                    <h3 id="bfb" class="material-icons">BIG FUNNY BUTTON</h3>
+                </a> 
             </div>
             <div class="chuckImg"></div>
         </div>
@@ -187,8 +194,6 @@
     <audio id="wow">           <source src="assets/audio/woow_x.wav"            type="audio/wav"></audio>
     <audio id="yay">           <source src="assets/audio/yay_z.wav"             type="audio/wav"></audio>
     <audio id="zag">           <source src="assets/audio/zag_x.wav"             type="audio/wav"></audio>
-
-<!--     <script src="https://unpkg.com/mithril/mithril.js"></script> -->
 
     
     <!--JQuery-->   
