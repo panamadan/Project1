@@ -21,6 +21,117 @@
 </head>
 
 <body>
+    <!-- Navbar goes here -->
+    <nav>
+        <div class="wrapperDiv">
+            <div class="containerHeader">
+
+                <div class="navTitleBox" href="#!">
+                    <h2 class="headerText hoverable">Make Me Laugh!</h2>
+                </div>
+                <!-- make into animation when cursor hovers  -->
+
+                <a class="happyFace"> <img src="https://media.giphy.com/media/3ohryou6kbKdobhYM8/giphy.gif"
+                    alt="" class="circle responsive-img" style="width: 58px;"></a>
+                
+            </div>
+        </div>
+    </nav>
+    <!-- Page Layout here -->
+    <div class="row">
+
+        <div class="col s3"> 
+
+            <form id="filterContainer" action="#">
+
+                <!-- Dropdown Trigger -->
+                <button class='dropdown-trigger btn-flat' id="filterBtn" href='#' 
+                    data-target='dropdown1' data-beloworigin="false">
+                    <span class="txt">Don't click me!</span> 
+                    <span class="overWriteTxt">DON'T YOU DARE!</span> 
+                    <span class="overReWriteTxt">Pick your fun!</span> 
+                </button>
+                
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li>
+                        <label for="chkChuckNorris">
+                            <input type="checkbox" class="filled-in" id="chkChuckNorris" checked="checked" />
+                            <span>Chuck Norris Jokes</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="chkTaunt">
+                            <input type="checkbox" class="filled-in" id="chkTaunt" checked="checked"/>
+                            <span>Taunt</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="chkNewAge">
+                            <input type="checkbox" class="filled-in" id="chkNewAge" checked="checked" />
+                            <span>New Age Jokes</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="chkCritterJokes">
+                            <input type="checkbox" class="filled-in" id="chkCritterJokes" checked="checked" />
+                            <span>Jokes of the Day</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="chkGenericJokes">
+                            <input type="checkbox" class="filled-in" id="chkGenericJokes" checked="checked" />
+                            <span>Geek Jokes</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="chkFortune">
+                            <input type="checkbox" class="filled-in" id="chkFortune" checked="checked"/>
+                            <span>Fortune</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="chkNSFW">
+                            <input type="checkbox" class="filled-in" id="chkNSFW"/>
+                            <span>NSFW</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="chkMute">
+                            <input type="checkbox" class="filled-in" id="chkMute"/>
+                            <span>Mute</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="chkRandom">
+                            <input type="checkbox" class="filled-in" id="chkRandom" checked="checked"/>
+                            <span>Random</span>
+                        </label>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <!--2 col-->
+        <div class="col s5"> <!-- Note that "m8 l9" was added -->
+            <div id="wrapper" class="center">
+                <!--big funny btn-->
+                <a class="btn-floating hoverable waves-effect left-align btn-large center red 
+                    darken-4 z-depth-5 animated infinite bounce delay-1s" id="bigFunnyBtn">
+                <h3 id="bfb" class="material-icons">BIG FUNNY BUTTON</h3></a> 
+            </div>
+        </div>
+        <!--3 col-->
+        <div class="col s3 jokesOutput"> 
+            <div id="allthejokes" class="right-align"> 
+                <div class="shakespeare1"></div>
+                <div class="na1"></div>
+                <div class="animaljoke"></div>
+                <div class="randomjoke1"></div>
+                <div class="chuck"></div>
+            </div>
+        </div>    
+    </div>
+    
     <audio id="aoogah">        <source src="assets/audio/aoogah.wav"            type="audio/wav"></audio>
     <audio id="applause2">     <source src="assets/audio/applause2_x.wav"       type="audio/wav"></audio>
     <audio id="bicyclebell">   <source src="assets/audio/bicycle_bell.wav"      type="audio/wav"></audio>
@@ -44,6 +155,7 @@
     <audio id="mpfart">        <source src="assets/audio/general_direction.wav" type="audio/wav"></audio>
     <audio id="gong">          <source src="assets/audio/gong.wav"              type="audio/wav"></audio>
     <audio id="gunshots">      <source src="assets/audio/gunshots2_x.wav"       type="audio/wav"></audio>
+    <audio id="haha">          <source src="assets/audio/haha.wav"              type="audio/wav"></audio>
     <audio id="honk">          <source src="assets/audio/honk2_x.wav"           type="audio/wav"></audio>
     <audio id="laugh">         <source src="assets/audio/laugh_x.wav"           type="audio/wav"></audio>
     <audio id="modem">         <source src="assets/audio/modem1.wav"            type="audio/wav"></audio>
@@ -76,10 +188,7 @@
     <audio id="yay">           <source src="assets/audio/yay_z.wav"             type="audio/wav"></audio>
     <audio id="zag">           <source src="assets/audio/zag_x.wav"             type="audio/wav"></audio>
     
-       
-    
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<!--     <script src="https://unpkg.com/mithril/mithril.js"></script> -->
     <script src="MakeMeLaugh.js"></script>
 
     <div class= "row">
@@ -100,9 +209,6 @@
                     alt="" class="circle responsive-img" style="width: 58px;">
                     
                         
-                    
-                    <!-- <a onclick="playSound();"> Play</a> -->
-                    <!-- make into button to play sounds --  -->
             </div>
         </div>
     </nav>
@@ -253,18 +359,15 @@
         <!-- </div> -->
     </div>
     
-    
     <!--JQuery-->   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
                 
     <!--JavaScript at end of body for optimized loading-->
 
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script src="mmlapis.js"></script> 
-    <!--FilterDD-->
-    <script src="filterDD.js"></script> 
+    <script src="MakeMeLaugh.js"></script>
+    <!-- <script src="mmlapis.js"></script>  -->
 </body>
 
 </html>
