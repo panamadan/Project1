@@ -301,10 +301,9 @@ $("#bigFunnyBtn").on("click",function()
   NSFW = document.getElementById("chkNSFW").checked;
 
   if (document.getElementById("chkTaunt"       ).checked) {shakespeare($("#shakespeare"),NSFW);}
-  if (document.getElementById("chkNewAge"      ).checked) {newage     ($("#newage"     ),NSFW);}
-  if (document.getElementById("chkCritterJokes").checked) {joketoday  ($("#joketoday"  ),NSFW);}
+  if (document.getElementById("chkNSFW"        ).checked) {newage     ($("#newage"     ),NSFW);}
   if (document.getElementById("chkGenericJokes").checked) {genericjoke($("#randomjoke" ),NSFW);}
-  if (document.getElementById("chkChuckNorris" ).checked) {chucknorris($("#chuck"     ),NSFW);}
+  if (document.getElementById("chkChuckNorris" ).checked) {chucknorris($("#chuck"      ),NSFW);}
   // if (document.getElementById("chkFortune"     ).checked) {fortunecookie($(".fortune"   ),NSFW);}
 
   getGIF("chuck norris",$(".chuckImg"));
@@ -379,7 +378,7 @@ function shakespeare(element,nsfw) {
 }
 
 // Category #2 - "New Age" Taunts
-// Be careful with this category; it runs out of requests quickly. You get what you pay for!
+// NSFW!!!
 function newage(element,nsfw) {
 
     $.ajax({
@@ -394,22 +393,7 @@ function newage(element,nsfw) {
     })
 }
 
-// Category #3 - Jokes of the Day
-// This one has a limit of 60 API calls a day "with a distribution of 5 calls an hour", so be careful.
-function joketoday(element,nsfw) {
-// This wrapper function is targeting the question, i.e. "What happened to the frog that broke down?"
-    $.ajax({
-        url: "https://api.jokes.one/jod?category=animal",
-        method: "GET"
-    }).then(function(kyloren) {
-    if (debug) {console.log(kyloren);}
-
-    // var joke =  Math.floor(Math.random()*5);
-    element.text(cleanStr(JSON.stringify(kyloren.contents.jokes[0].joke.text)));
-    })
-}
-
-// Category #4 - Generic
+// Category #3 - Generic
 function genericjoke(element,nsfw) {
     $.ajax({
             
@@ -423,7 +407,7 @@ function genericjoke(element,nsfw) {
     })
 }
 
-// Category #5 - Chuck Norris
+// Category #4 - Chuck Norris
 function chucknorris(element,nsfw) {
     $.ajax({
         url: "https://geek-jokes.sameerkumar.website/api",
