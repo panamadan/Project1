@@ -12,7 +12,7 @@
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <!--CSS-->
-    <link rel="stylesheet" href="c.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Make Me Laugh</title>
     <link rel="icon" href="https://media3.giphy.com/media/3ohryou6kbKdobhYM8/giphy.gif">
 </head>
@@ -116,15 +116,16 @@
                     darken-4 z-depth-5 animated infinite bounce delay-1s" id="bigFunnyBtn">
                 <i id="bfb" class="material-icons">BIG FUNNY BUTTON</i></a> 
             </div>
+            <div class="chuckImg"></div>
         </div>
         <!--3 col-->
         <div class="col s3 jokesOutput"> 
-            <div id="allthejokes" class="right-align">
-                <div class="shakespeare1"></div>
-                <div class="na1"></div>
-                <div class="animaljoke"></div>
-                <div class="randomjoke1"></div>
-                <div class="chuck"></div>
+            <div id="allthejokes" class="left-align">
+                <div class="shakesDiv"><p id="shakeTitle" ><b>Shakespeare Says:</b><br><span id="shakespeare"></span></p></div>
+                <div class="newageDiv"><p id="newageTitle"><b>Get Back, Jack!</b><br><span id="newage"></span></p></div>
+                <div class="randomDiv"><p id="randomTitle"><b>Generic Joke:</b><br><span id="randomjoke"></span</p></div>
+                <div class="chuckDiv" ><p id="chuckTitle" ><b>My Man!</b><br><span id="chuck"></span</p></div>
+                <div class="jokeDiv"  ><p id="jokeTitle"  ><b>Joke of the Day:</b><br><span id="joketoday"></span></p></div>
             </div>
         </div>    
     </div>
@@ -154,6 +155,7 @@
     <audio id="gunshots">      <source src="assets/audio/gunshots2_x.wav"       type="audio/wav"></audio>
     <audio id="haha">          <source src="assets/audio/haha.wav"              type="audio/wav"></audio>
     <audio id="honk">          <source src="assets/audio/honk2_x.wav"           type="audio/wav"></audio>
+    <audio id="horse">         <source src="assets/audio/horse.wav"             type="audio/wav"></audio>
     <audio id="laugh">         <source src="assets/audio/laugh_x.wav"           type="audio/wav"></audio>
     <audio id="modem">         <source src="assets/audio/modem1.wav"            type="audio/wav"></audio>
     <audio id="rejoicing">     <source src="assets/audio/much_rejoicing.wav"    type="audio/wav"></audio>
@@ -169,6 +171,7 @@
     <audio id="sonar">         <source src="assets/audio/sonar_x.wav"           type="audio/wav"></audio>
     <audio id="splash">        <source src="assets/audio/splash2.wav"           type="audio/wav"></audio>
     <audio id="splooge">       <source src="assets/audio/splooge.wav"           type="audio/wav"></audio>
+    <audio id="tarzanyell">    <source src="assets/audio/tarzan_yell.wav"       type="audio/wav"></audio>
     <audio id="toot">          <source src="assets/audio/toot2_x.wav"           type="audio/wav"></audio>
     <audio id="train">         <source src="assets/audio/train_crossing.wav"    type="audio/wav"></audio>
     <audio id="trumpet">       <source src="assets/audio/trumpet_x.wav"         type="audio/wav"></audio>
@@ -195,7 +198,7 @@
                 
     <!--JavaScript at end of body for optimized loading-->
 
-    <script src="MakeMeLaugh.js"></script>
+    <script src="assets/js/MakeMeLaugh.js"></script>
     <!-- <script src="mmlapis.js"></script>  -->
 </body>
 
