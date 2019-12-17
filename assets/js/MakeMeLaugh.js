@@ -287,6 +287,10 @@ document.addEventListener('mousemove',function(event)
 $('.dropdown-trigger').dropdown();
 $('.dropdown-trigger').attr("closeOnClick","false");
 
+$(".headertext").on("click",function()
+{
+  dance();
+})
 $(".happyFace").on("click",function()
 {
   playAudio("haha");
