@@ -2,35 +2,76 @@
     font-family: 'Nanum Pen Script', cursive;    
 }
 img {
-    border-radius: 50%;
+    border-radius: 70%;
     margin-left: 5px;
 }
 
 .wrapperDiv{ 
     background-color:#005aca;
 
+
     
 
 
 }
+@font-face {
+    font-family: myFirstFont;
+    src: url("assets/fonts/KRHaHa.ttf");
+  }
+
 
 
 h2.headerText{
     /* display: block; */
     margin: 0;
-    padding: 0;
+    padding: 7px;
     font-size: 3em;
     float:left;
-    font: black;
-    animation: spin 10s linear infinite;
-  /*Set our animation play state to paused initially */
-  animation-play-state: paused;
+    color: white;
+    
+    
 }
+h2.headerText:hover{
+        background: none;
+        color:white;
+        font-family: myFirstFont;
+        font-size: 4.2em;
+        letter-spacing: 0px;
+        line-height: .75em;
+        /* padding-top: 5%; */
+
+      
+}
+.dance{
+
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+animation: shake 0.5s;
+  
+/* When the animation is finished, start again */
+animation-iteration-count: infinite;
+}
+
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
 
 .containerHeader{
     margin: 0 auto;
-    width: 350px;
-    /* text-align: center;; */
+    width: 800px;
+    /* text-align: center; */
+    padding-left: 7%;
+
+
 }
 
 
