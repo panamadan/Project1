@@ -52,11 +52,22 @@
                     data-target='dropdown1' data-beloworigin="false">
                     <span class="txt">Don't click me!</span> 
                     <span class="overWriteTxt">DON'T YOU DARE!</span> 
-                    <span class="overReWriteTxt">Pick your fun!</span> 
                 </button>
                 
                 <!-- Dropdown Structure -->
                 <ul id='dropdown1' class='dropdown-content'>
+                    <li>
+                        <label for="chkTaunt">
+                            <input type="checkbox" class="filled-in" id="chkTaunt" checked="checked"/>
+                            <span>Shakespeare Taunt</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="chkGenericJokes">
+                            <input type="checkbox" class="filled-in" id="chkGenericJokes" checked="checked" />
+                            <span>Generic Jokes</span>
+                        </label>
+                    </li>
                     <li>
                         <label for="chkChuckNorris">
                             <input type="checkbox" class="filled-in" id="chkChuckNorris" checked="checked" />
@@ -64,45 +75,9 @@
                         </label>
                     </li>
                     <li>
-                        <label for="chkTaunt">
-                            <input type="checkbox" class="filled-in" id="chkTaunt" checked="checked"/>
-                            <span>Taunt</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label for="chkNewAge">
-                            <input type="checkbox" class="filled-in" id="chkNewAge" checked="checked" />
-                            <span>New Age Jokes</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label for="chkCritterJokes">
-                            <input type="checkbox" class="filled-in" id="chkCritterJokes" checked="checked" />
-                            <span>Jokes of the Day</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label for="chkGenericJokes">
-                            <input type="checkbox" class="filled-in" id="chkGenericJokes" checked="checked" />
-                            <span>Geek Jokes</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label for="chkFortune">
-                            <input type="checkbox" class="filled-in" id="chkFortune" checked="checked"/>
-                            <span>Fortune</span>
-                        </label>
-                    </li>
-                    <li>
                         <label for="chkNSFW">
                             <input type="checkbox" class="filled-in" id="chkNSFW"/>
-                            <span>NSFW</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label for="chkMute">
-                            <input type="checkbox" class="filled-in" id="chkMute"/>
-                            <span>Mute</span>
+                            <span>New Age (NSFW)</span>
                         </label>
                     </li>
                     <li>
@@ -110,9 +85,16 @@
                             <input type="checkbox" class="filled-in" id="chkRandom" checked="checked"/>
                             <span>Random</span>
                         </label>
+                    <li>
+                        <label for="chkMute">
+                            <input type="checkbox" class="filled-in" id="chkMute"/>
+                            <span>Mute</span>
+                        </label>
+                    </li>
                     </li>
                 </ul>
             </form>
+            <div class="chuckImg"></div>
         </div>
         <!--2 col-->
         <div class="col s5"> <!-- Note that "m8 l9" was added -->
@@ -123,16 +105,14 @@
                     <h3 id="bfb" class="material-icons">BIG FUNNY BUTTON</h3>
                 </a> 
             </div>
-            <div class="chuckImg"></div>
         </div>
         <!--3 col-->
         <div class="col s3 jokesOutput"> 
             <div id="allthejokes" class="left-align">
                 <div class="shakesDiv"><p id="shakeTitle" ><b>Shakespeare Says:</b><br><span id="shakespeare"></span></p></div>
-                <div class="newageDiv"><p id="newageTitle"><b>Get Back, Jack!</b><br><span id="newage"></span></p></div>
                 <div class="randomDiv"><p id="randomTitle"><b>Generic Joke:</b><br><span id="randomjoke"></span</p></div>
                 <div class="chuckDiv" ><p id="chuckTitle" ><b>My Man!</b><br><span id="chuck"></span</p></div>
-                <div class="jokeDiv"  ><p id="jokeTitle"  ><b>Joke of the Day:</b><br><span id="joketoday"></span></p></div>
+                <div class="newageDiv"><p id="newageTitle"><b>Get Back, Jack!</b><br><span id="newage"></span></p></div>
             </div>
         </div>    
     </div>
@@ -200,6 +180,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/js/MakeMeLaugh.js"></script>
+    <script src="filterDD.js"></script>
 </body>
 
 </html>

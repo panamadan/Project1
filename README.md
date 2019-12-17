@@ -2,6 +2,7 @@
 
 1. Elevator Pitch
 
+
     The name of our application is Make Me Laugh. It's designed to be a "time-waster", and a website purely for fun. When users want to be entertained, they simply visit the site and click the on "big funny button" in the middle of hte page. Content is then generated on the page in the form of jokes, funny sounds, and gifs.
 
 2. Concept
@@ -27,6 +28,7 @@
 
     Challenges enountered were numerous. Reliable APIs were difficult to find for free. One API in particular offered four different categories of jokes, however each of those categories only provided one joke per day. Some of the jokes were not humorous or understandable, and those that were displayed weird squigly/jibberish characters.
 
+
     It was difficult finding free, reliable APIs which offered a wide variety of humorous content. We have generic jokes, Olde-English insults, Chuck Norris Jokes and gifs. However we wished to find additional types of humor (i.e. knock-knock jokes, humorous fortunes) and were unable to for free.
 
     The difficulties in the CSS included the jokes not being moved to the right side of the page from the big button. Making the button into a perfect round circle. The drop down box does not stay when it is clicked. Also, making the text in the header to animate into bigger text without moving the rest of the information of the body from its position. Making the giphy face into a lauging button when pressed.  
@@ -35,6 +37,10 @@
 
 4. Demo
 
+
+![App Screenshot](readmescreenshot.png "Picture of Website")
+
+
 5. Directions for Future Development
 
     Provided more time, a key additional aspect of future development would be the integration of more APIs and types of jokes. One of our team members (Dick) has a collection of humorous fortunes we wanted to incorporate; however, we didn't have the time to get it functioning as a server-side API. 
@@ -42,4 +48,6 @@
 6. Links
 
     GH pages: <https://panamadan.github.io/Project1/>
+
     GH repository: <https://github.com/panamadan/Project1.git>
+
