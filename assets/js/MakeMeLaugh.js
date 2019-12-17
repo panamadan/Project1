@@ -301,9 +301,9 @@ $("#bigFunnyBtn").on("click",function()
   NSFW = document.getElementById("chkNSFW").checked;
 
   if (document.getElementById("chkTaunt"       ).checked) {shakespeare($("#shakespeare"),NSFW);}
-  if (document.getElementById("chkNSFW"        ).checked) {newage     ($("#newage"     ),NSFW);}
   if (document.getElementById("chkGenericJokes").checked) {genericjoke($("#randomjoke" ),NSFW);}
   if (document.getElementById("chkChuckNorris" ).checked) {chucknorris($("#chuck"      ),NSFW);}
+  if (document.getElementById("chkNSFW"        ).checked) {newage     ($("#newage"     ),NSFW);}
   // if (document.getElementById("chkFortune"     ).checked) {fortunecookie($(".fortune"   ),NSFW);}
 
   getGIF("chuck norris",$(".chuckImg"));
@@ -325,7 +325,8 @@ $("#bigFunnyBtn").on("click",function()
 
 function imageClick(event)
 {
-  $(this).parent.remove(this);
+  console.log("click on chuck");
+  $(this).remove();
 }
 
 // API functions ***
