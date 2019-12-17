@@ -33,6 +33,8 @@
 
 4. Demo
 
+![App Screenshot](readmescreenshot.png "Picture of Website")
+
 5. Directions for Future Development
 
     Provided more time, a key additional aspect of future development would be the integration of more APIs and types of jokes. One of our team members (Dick) has a collection of humorous fortunes we wanted to incorporate; however, we didn't have the time to get it functioning as a server-side API. 
