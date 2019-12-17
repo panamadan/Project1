@@ -10,6 +10,10 @@
 
 const debug = false;
 var clickCount = 0;
+var muted = false;
+var randomChecked = true;
+var oldRandomChecked = false;
+var NSFW = true;
 
 var eventFunctions =
 [
@@ -136,6 +140,10 @@ function randoEngine()
     // reset the countdown for the next event.
     timeSec = eventFunctions[onDeck].timeUntilStart;
   }
+
+  muted         = document.getElementById("chkMute" ).checked;
+  randomChecked = document.getElementById("chkRandom").checked;
+
   if (debug) {console.log("timeSec "+timeSec);}
 }
 
@@ -168,7 +176,8 @@ var backgrounds =
   "assets/images-backgrounds/oaS3VhR.gif",
   "assets/images-backgrounds/Vqzm.gif",
   "assets/images-backgrounds/Y3ir.gif",
-  "assets/images-backgrounds/ZBOM.gif"
+  "assets/images-backgrounds/ZBOM.gif",
+  "assets/images-backgrounds/jsx.gif"
 ]
 function backgroundBlaster()
 {
@@ -195,8 +204,6 @@ function changeNavBar()
 
     $(".wrapperDiv").css({"background-color": rgb});
 }
-
-var muted = false;
 
 function playAudio(elementName)
 {
@@ -278,15 +285,13 @@ document.addEventListener('mousemove',function(event)
 });
 
 $('.dropdown-trigger').dropdown();
+$('.dropdown-trigger').attr("closeOnClick","false");
 
 $(".happyFace").on("click",function()
 {
   playAudio("haha");
 })
 
-var randomChecked = true;
-var oldRandomChecked = false;
-var NSFW = true;
 
 $("#bigFunnyBtn").on("click",function()
 {
@@ -301,9 +306,6 @@ $("#bigFunnyBtn").on("click",function()
   if (document.getElementById("chkGenericJokes").checked) {genericjoke($("#randomjoke" ),NSFW);}
   if (document.getElementById("chkChuckNorris" ).checked) {chucknorris($("#chuck"     ),NSFW);}
   // if (document.getElementById("chkFortune"     ).checked) {fortunecookie($(".fortune"   ),NSFW);}
-
-  muted         = document.getElementById("chkMute" ).checked;
-  randomChecked = document.getElementById("chkRandom").checked;
 
   getGIF("chuck norris",$(".chuckImg"));
 
@@ -321,6 +323,11 @@ $("#bigFunnyBtn").on("click",function()
 
   if (!muted) {playAudio(clickCount == 1 ? "tarzanyell":"boing");}
 })
+
+function imageClick(event)
+{
+  $(this).parent.remove(this);
+}
 
 // API functions ***
 
@@ -445,6 +452,8 @@ function getGIF(searchStr,element,nsfw) {
 
     // Creating an image tag
     var searchStrImage = $("<img>").attr("src", results[rand].images.fixed_height.url);
+
+    searchStrImage.on("click",imageClick);
 
     // Appending the paragraph and personImage we created to the "gifDiv" div we created
     searchStrImage.appendTo(gifDiv);
