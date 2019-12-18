@@ -13,24 +13,26 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <!--CSS-->
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Make Me Laugh</title>
     <link rel="icon" href="https://media3.giphy.com/media/3ohryou6kbKdobhYM8/giphy.gif"> 
+
+    <title>Make Me Laugh</title>
+
 </head>
 
 <body>
 
+    <!-- Materialize.css classes are used in this layout -->
+
+    <!-- Title Bar -->
     <div class="row">
         <div class="col-12" style="padding: 0;">
-        <!-- Navbar goes here -->
             <nav>
                 <div class="wrapperDiv">
                     <div class="containerHeader">
-
+                        <!-- make into animation when cursor hovers  -->
                         <a href="#!">
                             <h2 class="headerText">Make Me Laugh!</h2>
                         </a>
-                        <!-- make into animation when cursor hovers  -->
-
                         <a class="happyFace"> <img src="https://media.giphy.com/media/3ohryou6kbKdobhYM8/giphy.gif"
                             alt="" class="circle responsive-img" style="width: 58px;">
                         </a>
@@ -40,14 +42,14 @@
         </div>   
     </div>
     
-    <!-- Page Layout here -->
+    <!-- below the Title bar are three columns, consuming 11/12 of the page width -->
     <div class="row">
-
+        <!-- first column, 3/12 -->
         <div class="col s3"> 
-
             <form id="filterContainer" action="#">
 
-                <!-- Dropdown Trigger -->
+                <!-- Dropdown Trigger.  This button and dropdown checkbox control which API sites are used
+                    as well as options for muting the sounds and on/off for the random events generator -->
                 <button class='dropdown-trigger btn-flat' id="filterBtn" href='#' 
                     data-target='dropdown1' data-beloworigin="false">
                     <span class="txt">Don't click me!</span> 
@@ -94,19 +96,20 @@
                     </li>
                 </ul>
             </form>
+            <!-- This div is the attach point for gifs fetched by the JS -->
             <div class="chuckImg"></div>
         </div>
-        <!--2 col-->
-        <div class="col s5"> <!-- Note that "m8 l9" was added -->
+        <!-- middle column, 5/12 col-->
+        <div class="col s5">
             <div id="wrapper" class="center">
-                <!--big funny btn-->
+                <!--big funny btn. note addition of animate parameters -->
                 <a class="btn-floating hoverable waves-effect left-align btn-large center red 
                     darken-4 z-depth-5 animated infinite bounce delay-1s" id="bigFunnyBtn">
                     <h3 id="bfb" class="material-icons">BIG FUNNY BUTTON</h3>
                 </a> 
             </div>
         </div>
-        <!--3 col-->
+        <!-- last (rightmost) column, used for the jokes display box -->
         <div class="col s3 jokesOutput"> 
             <div id="allthejokes" class="left-align">
                 <div class="shakesDiv"><p id="shakeTitle" ><b>Shakespeare Says:</b><br><span id="shakespeare"></span></p></div>
@@ -117,6 +120,7 @@
         </div>    
     </div>
     
+    <!-- all audio files used by the program -->
     <audio id="aoogah">        <source src="assets/audio/aoogah.wav"            type="audio/wav"></audio>
     <audio id="applause2">     <source src="assets/audio/applause2_x.wav"       type="audio/wav"></audio>
     <audio id="bicyclebell">   <source src="assets/audio/bicycle_bell.wav"      type="audio/wav"></audio>
@@ -180,7 +184,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/js/MakeMeLaugh.js"></script>
-    <script src="filterDD.js"></script>
+
 </body>
 
 </html>
