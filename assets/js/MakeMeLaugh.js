@@ -38,7 +38,7 @@ var eventFunctions =
     }
 ]
 
-// audioList holds a subsed of the audio elements on the HTML page
+// audioList holds a subset of the audio elements on the HTML page
 // the audio files which are not here are dedicated to actions on the page.
 var audioList =
 [
@@ -104,7 +104,7 @@ var audioList =
 
 // randoEngine() services the one-second timer by counting
 // down to the next event. On timeout, the next event is 
-// executed, and the time interval to the next event is loaded.
+// executed, and the time interval to the new next event is loaded.
 // when the list of events is exhausted, the list is shuffled
 // randomly, then intervals are assigned randomly, and the 
 // party goes on...
@@ -142,7 +142,7 @@ function randoEngine()
   }
 
   // active monitoring of the dropdown checkbox
-  muted         = document.getElementById("chkMute" ).checked;
+  muted         = document.getElementById("chkMute"  ).checked;
   randomChecked = document.getElementById("chkRandom").checked;
 
   if (debug) {console.log("timeSec "+timeSec);}
@@ -462,7 +462,6 @@ function getGIF(searchStr,element,nsfw) {
 
     var rand = Math.floor(Math.random()*results.length);
 
-    // Only taking action if the photo has an appropriate rating
     // Creating a div for the gif
     var gifDiv = $("<div>");
 
@@ -486,8 +485,14 @@ function getGIF(searchStr,element,nsfw) {
 $(document).ready(function()
 {
   // these two magical lines implement initialization of the 
-  // checkbox dropdown with closeOnClick false.
+  // checkbox dropdown with closeOnClick false.  these are
+  // Materialize.css structures and names.
+
+  // get all .dropdown-trigger elements (we have one)
   var elems = document.querySelectorAll('.dropdown-trigger');
+  // change the default behavior to not close the dropdown on
+  // clicks inside it.  it will close if any other page button
+  // is clicked.
   M.Dropdown.init(elems, {"closeOnClick":false});
   
   if (debug){instances.forEach(instance => { console.log(instance);}); }
