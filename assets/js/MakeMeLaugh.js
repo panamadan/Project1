@@ -1,20 +1,19 @@
 // Make Me Laugh's javascript file
 // DPLD - Dan Priya Lilliana Dick
 // 20191218
-//
-//
-//
+
 //***************
 //*   Globals   *
 //***************
 
-const debug = false;
-var clickCount = 0;
-var muted = false;
-var randomChecked = true;
-var oldRandomChecked = false;
-var NSFW = true;
+const debug = false;            // make true to see console logs
+var clickCount = 0;             // Big Funny Button click counter
+var muted = false;              // start out with sounds enabled
+var randomChecked = true;       //   and with randoEngine enabled
+var oldRandomChecked = false;   // history variable for randomChecked 
+var NSFW = true;                // start condition is to not use NewAge jokes
 
+// eventFunctions is the list of random events
 var eventFunctions =
 [
     {
@@ -23,8 +22,8 @@ var eventFunctions =
         timeUntilStart: 0
     },
     {
-        name: "toggleButtonRun",
-        activity: toggleButtonRun,
+        name: "cycleButtonRun",
+        activity: cycleButtonRun,
         timeUntilStart: 0
     },
     {
@@ -39,12 +38,13 @@ var eventFunctions =
     }
 ]
 
+// audioList holds a subset of the audio elements on the HTML page
+// the audio files which are not here are dedicated to actions on the page.
 var audioList =
 [
    "aoogah",       
    "applause2",    
    "bicyclebell",  
-   "boing",        
    "burp",         
    "burp2",        
    "buzzer",       
@@ -104,7 +104,7 @@ var audioList =
 
 // randoEngine() services the one-second timer by counting
 // down to the next event. On timeout, the next event is 
-// executed, and the time interval to the next event is loaded.
+// executed, and the time interval to the new next event is loaded.
 // when the list of events is exhausted, the list is shuffled
 // randomly, then intervals are assigned randomly, and the 
 // party goes on...
@@ -141,12 +141,14 @@ function randoEngine()
     timeSec = eventFunctions[onDeck].timeUntilStart;
   }
 
-  muted         = document.getElementById("chkMute" ).checked;
+  // active monitoring of the dropdown checkbox
+  muted         = document.getElementById("chkMute"  ).checked;
   randomChecked = document.getElementById("chkRandom").checked;
 
   if (debug) {console.log("timeSec "+timeSec);}
 }
 
+// shuffleEventFunctions() changes the order of the events array.
 function shuffleEventFunctions()
 {
   eventFunctions.sort((a, b) => Math.random() - 0.5);
@@ -157,6 +159,7 @@ function shuffleEventFunctions()
   }
 }
 
+// assignRandomInterval() assigns pseudo-random delays to the random events
 function assignRandomIntervals() 
 {
   const minDelay =  3;     // seconds
@@ -168,11 +171,13 @@ function assignRandomIntervals()
   }
 }
 
+// backgroundBlaster() switches the background to an image in the backgrounds[] array.
 var backgrounds =
 [
   "assets/images-backgrounds/shutterstock_1293011533.jpg",
   "assets/images-backgrounds/sparklesAndColors.gif",
   "assets/images-backgrounds/bottomlessPit.gif",
+  "assets/images-backgrounds/firework.gif",
   "assets/images-backgrounds/oaS3VhR.gif",
   "assets/images-backgrounds/Vqzm.gif",
   "assets/images-backgrounds/Y3ir.gif",
@@ -188,7 +193,7 @@ function backgroundBlaster()
     $("body").css({"background-image":"url("+nextBkg+")"});
 }
 
-
+// changeNavBar() randomly reassigns the background color of the Title Bar.
 function changeNavBar() 
 {
     var red = 0;
@@ -205,6 +210,9 @@ function changeNavBar()
     $(".wrapperDiv").css({"background-color": rgb});
 }
 
+// playAudio() plays an audio element, either by specified
+// page element or as chosen at random from the list above.
+// note that audio play is gated by the muted flag.
 function playAudio(elementName)
 {
   if (!muted)
@@ -226,13 +234,15 @@ function playAudio(elementName)
   }
 }
 
+// cycleButtonRun() implements a small state machine to cycle through three
+// states for the Big Funny Button.  Activation of the state transitions
+// is done by the randoEngine().
 const NORMAL_BUTTON = 0;
 const SCARED_BUTTON = 1;
 const STICKY_BUTTON = 2;
 var runButtonRun = NORMAL_BUTTON;
 var oldRunButton = NORMAL_BUTTON;
-
-function toggleButtonRun()
+function cycleButtonRun()
 {
   switch (runButtonRun)
   {
@@ -244,59 +254,74 @@ function toggleButtonRun()
   if (debug) {console.log("runaway button is " + (runButtonRun == NORMAL_BUTTON? "normal":(runButtonRun == STICKY_BUTTON ? "sticky":"scared")));}
 }
 
-var cursorX =  200;
-var cursorY = -200;
-
+// Big Funny Button logic.  Invocation is by 'hooking in' to mouse movement.
+var cursorX =  200;   // these values are used in place of event.clientX and event.clientY, which
+var cursorY = -200;   // became intermittent when Materialize.css was incorporated.
 document.addEventListener('mousemove',function(event)
 {
-  // var x = event.clientX;
+  // integrate delta movement to get actual position
   var dx = event.movementX;
   cursorX += dx;
-  // var y = event.clientY;
   var dy = event.movementY;
   cursorY += dy;
 
+  // now run the cursor|button relationship modes
   switch (runButtonRun)
   {
     case NORMAL_BUTTON:
       $("#bigFunnyBtn").text("BIG FUNNY BUTTON  "+ clickCount);
-      top = -200;
+      top = -200;       // on 'Normal', the button is pushed back to its starting point.
       cursorY = top;
       left = 200;
       cursorX = left;
       break;
     case STICKY_BUTTON:
       $("#bigFunnyBtn").text("BIG FOLLOW BUTTON  "+ clickCount);
-      top = cursorY;
-      left = cursorX;
+      top = cursorY;   // this is the button-follows cursor mode
+      left = cursorX;  
       break;
     case SCARED_BUTTON:
       $("#bigFunnyBtn").text("BIG SCARED BUTTON  "+ clickCount);
       var jump = (oldRunButton != SCARED_BUTTON) ? 100 : 0;
-      var top  = cursorX + jump;
+      var top  = cursorX + jump;  // this is the button-avoids-cursor mode
       var left = cursorY + jump; 
       break;
   }
+  //limit the excursion
   top  =  top < -500 ? -500 : (top  > 500 ? 500 : top);
   left = left < -500 ? -500 : (left > 500 ? 500 : left);
+
+  // and set the button location
   $("#bigFunnyBtn").css("top" ,top +"px");
   $("#bigFunnyBtn").css("left",left+"px");
+
+  // having oldRunButton behind by one processing cycle allows
+  // detection of change to runButtonRun -- for the first execution
+  // after runButtonRun changes, oldRunButton is still the previous
+  // value of runButtonRun.
   oldRunButton = runButtonRun;
 });
 
-$('.dropdown-trigger').dropdown();
-$('.dropdown-trigger').attr("closeOnClick","false");
+// Page interaction functions ****
 
-$(".headertext").on("click",function()
-{
-  dance();
-})
+// for the Checkbox DropDown
+$('.dropdown-trigger').dropdown();
+
+// for a click on the emoji icon in the Title Bar
 $(".happyFace").on("click",function()
 {
   playAudio("haha");
 })
 
+// for a click on a Chuck Norris gif
+function imageClick(event)
+{
+  console.log("click on chuck");
+  $(this).remove();
+}
 
+
+// for a click of the Big Button
 $("#bigFunnyBtn").on("click",function()
 {
   clickCount++;
@@ -308,33 +333,34 @@ $("#bigFunnyBtn").on("click",function()
   if (document.getElementById("chkGenericJokes").checked) {genericjoke($("#randomjoke" ),NSFW);}
   if (document.getElementById("chkChuckNorris" ).checked) {chucknorris($("#chuck"      ),NSFW);}
   if (document.getElementById("chkNSFW"        ).checked) {newage     ($("#newage"     ),NSFW);}
-  // if (document.getElementById("chkFortune"     ).checked) {fortunecookie($(".fortune"   ),NSFW);}
 
+  // and, what the heck, let's get *another* chuck norris gif
   getGIF("chuck norris",$(".chuckImg"));
 
+  // test for a transition to randomChecked
   if (randomChecked && !oldRandomChecked)
   {
+    // start the clock!
     masterClock = setInterval(randoEngine,1000);
   }
   else if (!randomChecked && oldRandomChecked)
   {
+    // and here's a transition to random off.
     clearInterval();
     runButtonRun = NORMAL_BUTTON;
   }
 
+  // keep the history one cycle behind.
   oldRandomChecked = randomChecked;
 
   if (!muted) {playAudio(clickCount == 1 ? "tarzanyell":"boing");}
 })
 
-function imageClick(event)
-{
-  console.log("click on chuck");
-  $(this).remove();
-}
 
 // API functions ***
 
+// cleanStr() replaces "\\\"" (that is, backslash & quote) with quote, deletes "\\r" (backlash-r),
+// and replaces "\\n" with "*"
 function cleanStr(inString)
 {
   do
@@ -366,6 +392,7 @@ function cleanStr(inString)
   while (searchRes >= 0)
   return(inString);
 }
+
 
 // Category #1 - Shakespeare Taunts
 function shakespeare(element,nsfw) {
@@ -435,7 +462,6 @@ function getGIF(searchStr,element,nsfw) {
 
     var rand = Math.floor(Math.random()*results.length);
 
-    // Only taking action if the photo has an appropriate rating
     // Creating a div for the gif
     var gifDiv = $("<div>");
 
@@ -458,14 +484,26 @@ function getGIF(searchStr,element,nsfw) {
 
 $(document).ready(function()
 {
+  // these two magical lines implement initialization of the 
+  // checkbox dropdown with closeOnClick false.  these are
+  // Materialize.css structures and names.
+
+  // get all .dropdown-trigger elements (we have one)
   var elems = document.querySelectorAll('.dropdown-trigger');
+  // change the default behavior to not close the dropdown on
+  // clicks inside it.  it will close if any other page button
+  // is clicked.
   M.Dropdown.init(elems, {"closeOnClick":false});
+  
   if (debug){instances.forEach(instance => { console.log(instance);}); }
   
- 
+  // get ready for randomizing
   shuffleEventFunctions();
   assignRandomIntervals();
+  // and put up a background
   backgroundBlaster();
+
+  // set up for randoEngine() operation.
   timeSec = eventFunctions[0].timeUntilStart;
   $("#bigFunnyBtn").text("BIG FUNNY BUTTON      "+ clickCount);
 })

@@ -1,35 +1,56 @@
+/*/ Make Me Laugh's CSS file
+// DPLD - Dan Priya Lilliana Dick
+// 20191218
+/*/
+
+/* the everything rule */
 * {
     font-family: 'Nanum Pen Script', cursive;    
 }
+
+/* general look and spacing for the grid */
+.row .col {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 50px .75rem;
+    min-height: 1px;
+}
+.col {
+    box-sizing: border-box;
+}
+
+
+/* and for images */
 img {
     border-radius: 70%;
     margin-left: 5px;
 }
 
+/* underlying color - but we'll be putting a background on it. */
 .wrapperDiv{ 
     background-color:#005aca;
 }
 
+/* the title dances on hover */
+h2.headerText {
+    margin: 0;
+    padding: 7px;
+    font-size: 3em;
+    float: left;
+}
+/* assign KRHaHa to MyFirstFont */
 @font-face {
     font-family: MyFirstFont;
     src: url("../fonts/KRHaHa.ttf");
 }
-
-h2.headerText {
-    /* display: block; */
-    margin: 0;
-    padding: 7px;
-    font-size: 3em;
-    float:left;
-}
-
 h2.headerText:hover {
     font-size: 3em;
     font-family: MyFirstFont;
     animation: shake 0.5s;
     animation-iteration-count: infinite;
 }
-
+/* animation nation */
 @keyframes shake {
      0% { transform: translate( 1px, 1px) rotate( 0deg); }
     10% { transform: translate(-1px,-2px) rotate(-1deg); }
@@ -39,47 +60,44 @@ h2.headerText:hover {
     50% { transform: translate(-1px, 2px) rotate(-1deg); }
     60% { transform: translate(-3px, 1px) rotate( 0deg); }
     70% { transform: translate( 3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px,-1px) rotate(-deg); }
+    80% { transform: translate(-1px,-1px) rotate(-1deg); }
     90% { transform: translate( 1px, 2px) rotate( 0deg); }
    100% { transform: translate( 1px,-2px) rotate(-1deg); }
 }
 
-.containerHeader{
+/* now down into the page */
+.containerHeader {
     margin: 0 auto;
     width: 800px;
     padding-left: 7%;
 }
 
-#bigFunnyBtn {
-    position: absolute;
-    top: -200px;
-    left: 200px;
+/* column 1 */
+
+/* the dropdown mainly holds filter switches for joke fetches,
+so it's called the filter box.  here is its style and title. */
+element.style {
+    display: block;
+    width: 219.375px;
+    left: 21.25px;
+    top: 120px;
     height: 350px;
-    width: 350px;
-    /* display: flex; */
-    align-items: center;
-    justify-content: left;
-    margin: 25%;
-    display: grid;
-    padding: 40px;
-    font-size: 2.92rem;
-    border: 20px solid lightgray;
-    border-radius: 350px;   
+    transform-origin: 0px 0px;
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+    background-color: none;
 }
 
-.chuckImg {
-    position: absolute;
-    left: 10px;
-    top:   200px
+#filterContainer {
+    margin-left: 50px;
+    background: transparent;
+}
+#filterHeader {
+    font-size: 3.92rem;
+    color: black;
 }
 
-#wrapper {
-    height: 100%;
-    align-items: left;
-    justify-content: left;
-    display: inline-table;
-}
-
+/* here are the checkboxes in the dropdown */
 [type="checkbox"].filled-in:checked+span:not(.lever):after {
     border: 1px solid black;
     background-color: #005aca;
@@ -89,31 +107,7 @@ h2.headerText:hover {
     color: black;
 }
 
-#filterHeader {
-    font-size: 3.92rem;
-    color: black;
-}
-#filterContainer {
-    margin-left: 50px;
-    background: transparent;
-}
-
-#allthejokes {
-    font-size: 20px;
-    word-wrap: break-word;
-    box-sizing: border-box;
-    text-align: left;
-    position: relative;
-    padding: 35px 24px 40px 21px;
-    width: 120%;
-    background-color: white;
-    border: ridge 10px gold;
-}
-
-.col {
-    box-sizing: border-box;
-}
-
+/* the dropdown button, with its hover effect */
 #filterBtn {
     background-color: white;
     color: black;
@@ -122,20 +116,11 @@ h2.headerText:hover {
     border:solid 3px black;
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
-
-.row .col {
-    float: left;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 50px .75rem;
-    min-height: 1px;
-}
-
 #filterBtn:hover { 
     font-size: 2em; 
     color: red;
 }
-
+/* button effects */
 button .overWriteTxt {
     display: none; 
 }
@@ -146,6 +131,7 @@ button:hover .overWriteTxt {
     display: inline; 
 }
 
+/* internal elements of the dropdown */
 .dropdown-content {
     background-color: #fff;
     margin: 40px;
@@ -161,17 +147,6 @@ button:hover .overWriteTxt {
     transform-origin: 0 0;
 }
 
-element.style {
-    display: block;
-    width: 219.375px;
-    left: 21.25px;
-    top: 120px;
-    height: 350px;
-    transform-origin: 0px 0px;
-    opacity: 1;
-    transform: scaleX(1) scaleY(1);
-    background-color: none;
-}
 .dropdown-content li {
     clear: both;
     color: rgba(0,0,0,0.87);
@@ -182,3 +157,54 @@ element.style {
     text-align: left;
     padding: 10px;
 }
+
+/* random Chuck Norris gifs are inserted in column 1, under
+the dropdown button */
+.chuckImg {
+    position: absolute;
+    left: 10px;
+    top:   200px
+}
+
+/* column 2 */
+
+/* this is the structure holding the Big Funny Button */
+#wrapper {
+    height: 100%;
+    align-items: left;
+    justify-content: left;
+    display: inline-table;
+}
+
+/* and the BFB */
+#bigFunnyBtn {
+    position: absolute;
+    top: -200px;
+    left: 200px;
+    height: 350px;
+    width: 350px;
+    align-items: center;
+    justify-content: left;
+    margin: 25%;
+    display: grid;
+    padding: 40px;
+    font-size: 2.92rem;
+    border: 20px solid lightgray;
+    border-radius: 350px;   
+}
+
+/* column 3 */
+
+/* joke display box in column 3 */
+#allthejokes {
+    font-size: 20px;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    text-align: left;
+    position: relative;
+    padding: 35px 24px 40px 21px;
+    width: 120%;
+    background-color: white;
+    border: ridge 10px gold;
+}
+
